@@ -245,14 +245,12 @@ function showSettings() {
         input.value = '';
         showApiStatus('💡 Sin API key — las specs se cargan con formulario manual', 'info');
     }
-    // Load JSONbin config if saved
-    const jbConfig = getJsonbinConfig();
-    if (jbConfig) {
-        document.getElementById('jsonbinId').value = jbConfig.binId || '';
-        document.getElementById('jsonbinKey').value = jbConfig.apiKey || '';
-        showJsonbinStatus('✅ Historial compartido configurado', 'success');
+    const ghToken = getGitHubToken();
+    if (ghToken) {
+        document.getElementById('ghTokenInput').value = ghToken;
+        showGhStatus('✅ Token configurado — guardado compartido activo', 'success');
     } else {
-        showJsonbinStatus('💡 Sin configurar — el historial se guarda solo en este navegador', 'info');
+        showGhStatus('💡 Sin token — podés ver el historial pero no guardar', 'info');
     }
     modal.style.display = 'flex';
 }
@@ -268,86 +266,95 @@ function closeSettingsDirect() {
 }
 
 // ============================================
-// JSONBIN — HISTORIAL COMPARTIDO
+// GITHUB — HISTORIAL COMPARTIDO EN EL REPO
 // ============================================
 
-function getJsonbinConfig() {
+const GH_REPO = 'brunochitra-tech/generador-de-publicaciones';
+const GH_FILE = 'history.json';
+
+function getGitHubToken() {
+    return localStorage.getItem('gh_token') || '';
+}
+
+function saveGitHubToken() {
+    const token = document.getElementById('ghTokenInput').value.trim();
+    if (!token) { showGhStatus('Ingresá un token válido', 'error'); return; }
+    localStorage.setItem('gh_token', token);
+    showGhStatus('✅ Token guardado — podés guardar en el historial compartido', 'success');
+}
+
+function removeGitHubToken() {
+    localStorage.removeItem('gh_token');
+    document.getElementById('ghTokenInput').value = '';
+    showGhStatus('🗑 Token eliminado — modo solo lectura', 'info');
+}
+
+async function testGitHubToken() {
+    const token = document.getElementById('ghTokenInput').value.trim() || getGitHubToken();
+    if (!token) { showGhStatus('Ingresá un token para probar', 'error'); return; }
+    showGhStatus('⏳ Probando...', 'info');
     try {
-        return JSON.parse(localStorage.getItem('jsonbin_config') || 'null');
-    } catch { return null; }
-}
-
-function saveJsonbinConfig() {
-    const binId = document.getElementById('jsonbinId').value.trim();
-    const apiKey = document.getElementById('jsonbinKey').value.trim();
-    if (!binId || !apiKey) {
-        showJsonbinStatus('Completá el Bin ID y la Master Key', 'error');
-        return;
-    }
-    localStorage.setItem('jsonbin_config', JSON.stringify({ binId, apiKey }));
-    showJsonbinStatus('✅ Historial compartido guardado', 'success');
-}
-
-function removeJsonbinConfig() {
-    localStorage.removeItem('jsonbin_config');
-    document.getElementById('jsonbinId').value = '';
-    document.getElementById('jsonbinKey').value = '';
-    showJsonbinStatus('🗑 Configuración eliminada — historial local activo', 'info');
-}
-
-async function testJsonbinConfig() {
-    const binId = document.getElementById('jsonbinId').value.trim() || (getJsonbinConfig() || {}).binId;
-    const apiKey = document.getElementById('jsonbinKey').value.trim() || (getJsonbinConfig() || {}).apiKey;
-    if (!binId || !apiKey) { showJsonbinStatus('Completá los datos antes de probar', 'error'); return; }
-    showJsonbinStatus('⏳ Probando conexión...', 'info');
-    try {
-        const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
-            headers: { 'X-Master-Key': apiKey, 'X-Bin-Meta': 'false' }
+        const res = await fetch(`https://api.github.com/repos/${GH_REPO}`, {
+            headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
         });
         if (res.ok) {
-            showJsonbinStatus('✅ Conexión exitosa — historial compartido listo', 'success');
+            showGhStatus('✅ Token válido — historial compartido activo', 'success');
         } else if (res.status === 401) {
-            showJsonbinStatus('❌ Master Key inválida', 'error');
-        } else if (res.status === 404) {
-            showJsonbinStatus('❌ Bin ID no encontrado. Verificá el ID', 'error');
+            showGhStatus('❌ Token inválido o expirado', 'error');
         } else {
-            showJsonbinStatus(`⚠️ Error ${res.status}`, 'error');
+            showGhStatus(`⚠️ Error ${res.status}`, 'error');
         }
     } catch {
-        showJsonbinStatus('❌ Error de conexión', 'error');
+        showGhStatus('❌ Error de conexión', 'error');
     }
 }
 
-function showJsonbinStatus(message, type) {
-    const el = document.getElementById('jsonbinStatus');
+function showGhStatus(message, type) {
+    const el = document.getElementById('ghTokenStatus');
     if (el) el.innerHTML = `<div class="api-status ${type}">${message}</div>`;
 }
 
-async function loadFromJsonbin() {
-    const config = getJsonbinConfig();
-    if (!config) return null;
+async function loadFromGitHub() {
     try {
-        const res = await fetch(`https://api.jsonbin.io/v3/b/${config.binId}/latest`, {
-            headers: { 'X-Master-Key': config.apiKey, 'X-Bin-Meta': 'false' }
-        });
+        const res = await fetch(
+            `https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}?t=${Date.now()}`,
+            { headers: { 'Accept': 'application/vnd.github.v3+json' } }
+        );
         if (!res.ok) return null;
         const data = await res.json();
-        return Array.isArray(data.products) ? data.products : [];
+        const bytes = Uint8Array.from(atob(data.content.replace(/\n/g, '')), c => c.charCodeAt(0));
+        const content = JSON.parse(new TextDecoder().decode(bytes));
+        return { products: content.products || [], sha: data.sha };
     } catch { return null; }
 }
 
-async function saveToJsonbin(products) {
-    const config = getJsonbinConfig();
-    if (!config) return false;
+async function saveToGitHub(products) {
+    const token = getGitHubToken();
+    if (!token) return false;
     try {
-        const res = await fetch(`https://api.jsonbin.io/v3/b/${config.binId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': config.apiKey
-            },
-            body: JSON.stringify({ products })
-        });
+        // Fetch latest sha to avoid conflicts
+        const current = await loadFromGitHub();
+        const sha = current ? current.sha : null;
+
+        const json = JSON.stringify({ products }, null, 2);
+        const encoded = new TextEncoder().encode(json);
+        const content = btoa(String.fromCharCode(...encoded));
+
+        const body = { message: `Historial actualizado — ${new Date().toLocaleString()}`, content };
+        if (sha) body.sha = sha;
+
+        const res = await fetch(
+            `https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/vnd.github.v3+json'
+                },
+                body: JSON.stringify(body)
+            }
+        );
         return res.ok;
     } catch { return false; }
 }
@@ -1383,7 +1390,7 @@ function displayFinalSummary() {
         `;
     }
 
-    const isShared = !!getJsonbinConfig();
+    const isShared = !!getGitHubToken();
     summary.innerHTML = `
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem;">
             <div class="spec-box"><div class="spec-label">Producto</div><div class="spec-value">${escapeHtml(productData.name)}</div></div>
@@ -1423,26 +1430,26 @@ async function saveProductFinal() {
         createdAt: new Date().toLocaleString()
     };
 
-    const config = getJsonbinConfig();
-    if (config) {
+    if (getGitHubToken()) {
         const btn = document.querySelector('.download-section button');
-        if (btn) { btn.disabled = true; btn.textContent = '⏳ Guardando...'; }
+        if (btn) { btn.disabled = true; btn.textContent = '⏳ Guardando en GitHub...'; }
         try {
-            const remoteProducts = await loadFromJsonbin() || [];
+            const remote = await loadFromGitHub();
+            const remoteProducts = remote ? remote.products : [];
             remoteProducts.push(productToSave);
-            const saved = await saveToJsonbin(remoteProducts);
+            const saved = await saveToGitHub(remoteProducts);
             if (saved) {
                 allProducts = remoteProducts;
-                alert('✅ Producto "' + productData.name + '" guardado en historial compartido ☁️');
+                if (btn) { btn.disabled = false; btn.textContent = '💾 Guardar en Historial'; }
+                alert('✅ Producto "' + productData.name + '" guardado en historial compartido ✓');
                 resetForm();
                 return;
             }
         } catch (e) {
-            console.error('JSONbin save failed:', e);
+            console.error('GitHub save failed:', e);
         }
         if (btn) { btn.disabled = false; btn.textContent = '💾 Guardar en Historial'; }
-        // Fallback to local
-        console.warn('JSONbin falló, guardando localmente');
+        console.warn('GitHub falló, guardando localmente');
     }
 
     allProducts.push(productToSave);
@@ -1512,18 +1519,12 @@ async function loadHistory() {
     const container = document.getElementById('historyContainer');
     container.innerHTML = `<div class="loading" style="display:block;"><div class="spinner"></div><p>Cargando historial...</p></div>`;
 
-    const config = getJsonbinConfig();
-    if (config) {
-        const remoteProducts = await loadFromJsonbin();
-        if (remoteProducts !== null) {
-            allProducts = remoteProducts;
-        } else {
-            // Fallback to local
-            allProducts = JSON.parse(localStorage.getItem('mlProducts')) || [];
-            container.innerHTML = `<div class="api-status error" style="margin-bottom:1rem;">⚠️ No se pudo conectar al historial compartido. Mostrando historial local.</div>`;
-        }
+    const remote = await loadFromGitHub();
+    if (remote !== null) {
+        allProducts = remote.products;
     } else {
         allProducts = JSON.parse(localStorage.getItem('mlProducts')) || [];
+        container.innerHTML += `<div class="api-status error" style="margin-bottom:1rem;">⚠️ No se pudo leer el historial del repo. Mostrando historial local.</div>`;
     }
 
     if (allProducts.length === 0) {
@@ -1531,13 +1532,14 @@ async function loadHistory() {
             <div class="empty-state">
                 <p>📭 No hay productos guardados aún</p>
                 <p style="font-size: 13px; color: #999; margin-top: 0.5rem;">Completá el flujo de creación para guardar tu primer producto</p>
-                ${!config ? '<p style="font-size: 12px; color: var(--delhi-naranja); margin-top: 0.5rem;">💡 Configurá el Historial Compartido en ⚙️ para que todos vean los productos</p>' : ''}
+                ${!getGitHubToken() ? '<p style="font-size: 12px; color: var(--delhi-naranja); margin-top: 0.5rem;">💡 Configurá tu GitHub Token en ⚙️ para guardar productos en el historial compartido</p>' : ''}
             </div>
         `;
         return;
     }
 
-    const sharedBadge = config ? '<span style="background:rgba(76,175,80,0.1);color:#2e7d32;border:1px solid rgba(76,175,80,0.3);border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;">☁️ Historial compartido</span>' : '<span style="background:rgba(33,150,243,0.1);color:#1565c0;border:1px solid rgba(33,150,243,0.3);border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;">💾 Historial local</span>';
+    const isSharedHistory = remote !== null;
+    const sharedBadge = isSharedHistory ? '<span style="background:rgba(76,175,80,0.1);color:#2e7d32;border:1px solid rgba(76,175,80,0.3);border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;">☁️ Historial del repo</span>' : '<span style="background:rgba(33,150,243,0.1);color:#1565c0;border:1px solid rgba(33,150,243,0.3);border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;">💾 Historial local</span>';
 
     let html = `<div style="margin-bottom:1rem;text-align:right;">${sharedBadge} — ${allProducts.length} producto${allProducts.length !== 1 ? 's' : ''}</div>`;
     html += '<div class="history-grid">';
@@ -1649,12 +1651,8 @@ async function deleteProduct(index) {
 
     allProducts.splice(index, 1);
 
-    const config = getJsonbinConfig();
-    if (config) {
-        const saved = await saveToJsonbin(allProducts);
-        if (!saved) {
-            console.warn('JSONbin delete failed, also removing from localStorage');
-        }
+    if (getGitHubToken()) {
+        await saveToGitHub(allProducts);
     }
 
     localStorage.setItem('mlProducts', JSON.stringify(allProducts));
