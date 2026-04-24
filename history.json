@@ -375,6 +375,192 @@
       ],
       "imageCount": 2,
       "createdAt": "24/4/2026, 12:58:38"
+    },
+    {
+      "id": 1777052361982,
+      "name": "Estufa de cuarzo",
+      "category": "calefacción",
+      "price": "22000",
+      "specs": {
+        "Marca": "Delhi",
+        "Modelo": "DL-1200",
+        "Potencia": "1200W",
+        "Voltaje": "220V",
+        "Frecuencia": "50Hz",
+        "Clase": "1",
+        "Fabricación": "Industria Argentina",
+        "Garantía": "Defectos de fabricación"
+      },
+      "placas": [
+        {
+          "number": 1,
+          "title": "Hero Shot — Lifestyle",
+          "prompt": "Professional lifestyle photography: Estufa de cuarzo in use, elegant outdoor patio at dusk, cozy warm atmosphere, warm golden hour lighting, high-end commercial advertisement style, photorealistic, 4K resolution, magazine quality composition",
+          "purpose": "Aspiración y contexto de uso — la primera impresión que vende",
+          "conversion": "~40% de los compradores siguen scrolleando después de esta imagen",
+          "visualSpecs": "Iluminación cálido y acogedor, producto en uso real, ambiente terraza / living acogedor",
+          "textSuggestion": {
+            "titulo": "CALOR INSTANTÁNEO",
+            "subtitulo": "Confort que se siente al instante",
+            "bullets": [
+              "⚡ Encendido rápido",
+              "♨️ Calor envolvente e inmediato"
+            ]
+          }
+        },
+        {
+          "number": 2,
+          "title": "Producto 360° — Vista Completa",
+          "prompt": "Product photography: Estufa de cuarzo, pure white background, professional studio lighting from 3 angles, premium finish, 1200W, sharp focus, elegant minimalist composition, e-commerce style, 1200x1200px, 4K",
+          "purpose": "Confianza — el comprador ve exactamente qué recibe",
+          "conversion": "~35% continúan al siguiente slide",
+          "visualSpecs": "Fondo blanco puro, iluminación tri-direccional, vista completa 360° del Estufa de cuarzo",
+          "textSuggestion": {
+            "titulo": "MÁXIMO RENDIMIENTO",
+            "subtitulo": "Tecnología pensada para vos",
+            "bullets": [
+              "⚡ Potencia: 1200W",
+              "🔌 220V"
+            ]
+          }
+        },
+        {
+          "number": 3,
+          "title": "Detalle Técnico — Close-Up",
+          "prompt": "Extreme close-up macro photography: Estufa de cuarzo key feature detail, premium finish texture visible,  professional studio lighting, technical precision, sharp focus, documentary style, 4K",
+          "purpose": "Calidad y seguridad — demuestra construcción premium",
+          "conversion": "Reduce dudas sobre calidad de materiales",
+          "visualSpecs": "Macro del componente principal, textura de premium finish, detalle técnico visible",
+          "textSuggestion": {
+            "titulo": "TUBOS DE CUARZO",
+            "subtitulo": "Calor uniforme y eficiente",
+            "bullets": [
+              "☀️ Máxima transferencia de calor",
+              "🛡 Mayor vida útil y resistencia"
+            ]
+          }
+        },
+        {
+          "number": 4,
+          "title": "Certificaciones y Specs",
+          "prompt": "Clean infographic design, white background, model DL-1200,  1200W specification, organized grid layout, official documentation style, corporate aesthetic, technical data sheet, 4K",
+          "purpose": "Credibilidad normativa — datos técnicos oficiales",
+          "conversion": "Credibilidad máxima para compradores técnicos",
+          "visualSpecs": "Modelo: DL-1200. Potencia: 1200W. Especificaciones técnicas en formato infográfico",
+          "textSuggestion": {
+            "titulo": "ESPECIFICACIONES TÉCNICAS",
+            "subtitulo": "Datos oficiales del producto",
+            "bullets": [
+              "⚡ Potencia: 1200W",
+              "🔌 220V",
+              "📋 Modelo: DL-1200"
+            ]
+          }
+        },
+        {
+          "number": 5,
+          "title": "Controles e Interfaz",
+          "prompt": "Close-up detail: Estufa de cuarzo controls and user interface, premium finish housing, clear visibility of buttons/dials/display, sharp macro photography, instruction manual style, easy to understand, 4K",
+          "purpose": "Usabilidad — muestra que es fácil de usar",
+          "conversion": "Reduce objeción 'será complicado de usar'",
+          "visualSpecs": "Detalle de controles, botones, perillas o pantalla del Estufa de cuarzo, claridad de uso",
+          "textSuggestion": {
+            "titulo": "FÁCIL DE USAR",
+            "subtitulo": "Control simple e intuitivo",
+            "bullets": [
+              "🖐 Botones prácticos",
+              "🔌 Conexión 220V"
+            ]
+          }
+        },
+        {
+          "number": 6,
+          "title": "Escala con Persona",
+          "prompt": "Lifestyle photograph: Estufa de cuarzo next to person for scale reference, elegant outdoor patio at dusk,  realistic proportions visible, natural pose, warm golden hour lighting, 4K",
+          "purpose": "Proporción real — el comprador entiende el tamaño",
+          "conversion": "Reduce objeción 'no sé si me sirve el tamaño'",
+          "visualSpecs": "Persona como referencia de escala",
+          "textSuggestion": {
+            "titulo": "TAMAÑO IDEAL",
+            "subtitulo": "Funcionalidad que se adapta a cualquier espacio",
+            "bullets": [
+              "✈️ Liviano y fácil de transportar",
+              "🏠 Compacto y práctico"
+            ]
+          }
+        },
+        {
+          "number": 7,
+          "title": "Instalación / Armado",
+          "prompt": "How-to photography: Estufa de cuarzo unboxed with all included accessories and parts visible, organized flat lay on clean surface, step-by-step setup context, modern residential setting, clear instructional style, 4K",
+          "purpose": "Practicidad — muestra que viene listo o es fácil de armar",
+          "conversion": "Reduce objeción 'será difícil de instalar/armar'",
+          "visualSpecs": "Contenido de la caja, accesorios incluidos, disposición ordenada flat-lay",
+          "textSuggestion": {
+            "titulo": "LISTO PARA USAR",
+            "subtitulo": "Todo incluido desde el primer momento",
+            "bullets": [
+              "📦 Contenido completo en la caja",
+              "⚡ Sin instalación compleja",
+              "📋 Instrucciones claras incluidas"
+            ]
+          }
+        },
+        {
+          "number": 8,
+          "title": "Materiales y Durabilidad",
+          "prompt": "Extreme macro photography: Estufa de cuarzo construction details, premium finish surfaces, professional industrial finish visible, premium build quality evident, craftsmanship close-up, technical documentation style, 4K",
+          "purpose": "Durabilidad — justifica la inversión",
+          "conversion": "Reduce objeción 'no va a durar'",
+          "visualSpecs": "Macro de premium finish, acabados, soldaduras o ensambles, construcción robusta",
+          "textSuggestion": {
+            "titulo": "BASE ESTABLE Y RESISTENTE",
+            "subtitulo": "Firmeza total en cualquier superficie",
+            "bullets": [
+              "🏗 Construcción robusta y duradera",
+              "✅ Materiales de alta calidad"
+            ]
+          }
+        },
+        {
+          "number": 9,
+          "title": "Uso Comercial / Ambiente",
+          "prompt": "Professional photography: multiple Estufa de cuarzo units in upscale restaurant patio with ambient heating, professional environment, satisfied users visible, warm golden hour lighting, commercial hospitality style, luxury venue, 4K",
+          "purpose": "Prueba social y uso B2B — validación profesional",
+          "conversion": "Validación: 'si los profesionales lo usan, es bueno'",
+          "visualSpecs": "Múltiples unidades en uso, ambiente profesional/comercial, clientes satisfechos",
+          "textSuggestion": {
+            "titulo": "LUZ CÁLIDA CONFORTABLE",
+            "subtitulo": "Ambiente acogedor y relajante",
+            "bullets": [
+              "👁 Luz cálida que no molesta",
+              "🏠 Ideal para hogar, oficina o dormitorio"
+            ]
+          }
+        },
+        {
+          "number": 10,
+          "title": "Garantía y CTA Final",
+          "prompt": "Professional corporate warranty seal design, circular badge with DELHI brand logo, 'Defectos de fabricación Guarantee' text, certification mark style, metallic gold and silver effect, premium aesthetic, official trust badge, 4K",
+          "purpose": "Cierre de venta — garantía + confianza + llamada a la acción",
+          "conversion": "Convierte visitantes en compradores",
+          "visualSpecs": "Sello de garantía Defectos de fabricación, logo DELHI, datos de contacto, llamada a la acción final",
+          "textSuggestion": {
+            "titulo": "CALIDEZ QUE TE ACOMPAÑA",
+            "subtitulo": "Disfrutá el mejor confort en tu día a día",
+            "bullets": [
+              "♨️ Calor inmediato",
+              "🛡 Garantía Defectos de fabricación",
+              "✅ Calidad DELHI garantizada"
+            ]
+          }
+        }
+      ],
+      "thumbnails": [
+        "data:image/jpeg;base64,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"
+      ],
+      "imageCount": 1,
+      "createdAt": "24/4/2026, 2:39:21 p.m."
     }
   ]
 }
