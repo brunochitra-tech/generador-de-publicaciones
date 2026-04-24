@@ -185,6 +185,196 @@
       ],
       "imageCount": 1,
       "createdAt": "23/4/2026, 4:56:12 p.m."
+    },
+    {
+      "id": 1777046318150,
+      "name": "secarropas delhi",
+      "category": "Electrodomésticos y Aires Ac.LavadoSecarropas",
+      "price": "300000",
+      "specs": {
+        "Modelo": "DL-205",
+        "Temperatura alta": "60 °C",
+        "Temperatura baja": "40 °C",
+        "Modos de secado": "6",
+        "Tiempo máximo de secado": "240 min",
+        "Dimensiones": "No especificadas",
+        "Peso": "No especificado",
+        "Material": "No especificado",
+        "Certificaciones": "No especificadas",
+        "Garantía": "6 meses"
+      },
+      "placas": [
+        {
+          "number": 1,
+          "title": "Hero Shot — Lifestyle",
+          "prompt": "Professional lifestyle photography: secarropas delhi in use, modern living room, clean desk setup, soft ambient light, soft diffused LED lighting, high-end commercial advertisement style, photorealistic, 4K resolution, magazine quality composition",
+          "purpose": "Aspiración y contexto de uso — la primera impresión que vende",
+          "conversion": "~40% de los compradores siguen scrolleando después de esta imagen",
+          "visualSpecs": "Iluminación tecnológico y elegante, producto en uso real, ambiente living / oficina moderna",
+          "textSuggestion": {
+            "titulo": "TECNOLOGÍA SUPERIOR",
+            "subtitulo": "Rendimiento que supera las expectativas",
+            "bullets": [
+              "⚡ Alto desempeño",
+              "🌀 Funcionamiento silencioso"
+            ]
+          }
+        },
+        {
+          "number": 2,
+          "title": "Producto 360° — Vista Completa",
+          "prompt": "Product photography: secarropas delhi, pure white background, professional studio lighting from 3 angles, No especificado, No especificadas, sharp focus, elegant minimalist composition, e-commerce style, 1200x1200px, 4K",
+          "purpose": "Confianza — el comprador ve exactamente qué recibe",
+          "conversion": "~35% continúan al siguiente slide",
+          "visualSpecs": "Fondo blanco puro, iluminación tri-direccional, vista completa 360° del secarropas delhi",
+          "textSuggestion": {
+            "titulo": "MÁXIMO RENDIMIENTO",
+            "subtitulo": "Tecnología pensada para vos",
+            "bullets": [
+              "⚡ Alta eficiencia energética",
+              "🎯 Prestaciones premium"
+            ]
+          }
+        },
+        {
+          "number": 3,
+          "title": "Detalle Técnico — Close-Up",
+          "prompt": "Extreme close-up macro photography: secarropas delhi key feature detail, No especificado texture visible,  professional studio lighting, technical precision, sharp focus, documentary style, 4K",
+          "purpose": "Calidad y seguridad — demuestra construcción premium",
+          "conversion": "Reduce dudas sobre calidad de materiales",
+          "visualSpecs": "Macro del componente principal, textura de No especificado, detalle técnico visible",
+          "textSuggestion": {
+            "titulo": "NO ESPECIFICADO",
+            "subtitulo": "Calidad en cada detalle del producto",
+            "bullets": [
+              "🔩 Construcción robusta",
+              "✅ Materiales certificados"
+            ]
+          }
+        },
+        {
+          "number": 4,
+          "title": "Certificaciones y Specs",
+          "prompt": "Clean infographic design, white background, model DL-205, No especificadas certification mark,  organized grid layout, official documentation style, corporate aesthetic, technical data sheet, 4K",
+          "purpose": "Credibilidad normativa — datos técnicos oficiales",
+          "conversion": "Credibilidad máxima para compradores técnicos",
+          "visualSpecs": "Modelo: DL-205. Certificación: No especificadas. Especificaciones técnicas en formato infográfico",
+          "textSuggestion": {
+            "titulo": "CALIDAD CERTIFICADA",
+            "subtitulo": "Datos oficiales del producto",
+            "bullets": [
+              "✅ Certificación: No especificadas",
+              "📋 Modelo: DL-205"
+            ]
+          }
+        },
+        {
+          "number": 5,
+          "title": "Controles e Interfaz",
+          "prompt": "Close-up detail: secarropas delhi controls and user interface, No especificado housing, clear visibility of buttons/dials/display, sharp macro photography, instruction manual style, easy to understand, 4K",
+          "purpose": "Usabilidad — muestra que es fácil de usar",
+          "conversion": "Reduce objeción 'será complicado de usar'",
+          "visualSpecs": "Detalle de controles, botones, perillas o pantalla del secarropas delhi, claridad de uso",
+          "textSuggestion": {
+            "titulo": "INTUITIVO Y SIMPLE",
+            "subtitulo": "Tecnología al alcance de todos",
+            "bullets": [
+              "🖐 Interfaz amigable",
+              "🔌 Plug & Play — sin configuración"
+            ]
+          }
+        },
+        {
+          "number": 6,
+          "title": "Escala con Persona",
+          "prompt": "Lifestyle photograph: secarropas delhi next to person for scale reference, modern living room, product dimensions approximately No especificadas, realistic proportions visible, natural pose, soft diffused LED lighting, 4K",
+          "purpose": "Proporción real — el comprador entiende el tamaño",
+          "conversion": "Reduce objeción 'no sé si me sirve el tamaño'",
+          "visualSpecs": "Dimensiones: No especificadas. Peso: No especificado. Persona como referencia de escala",
+          "textSuggestion": {
+            "titulo": "TAMAÑO IDEAL",
+            "subtitulo": "Funcionalidad que se adapta a cualquier espacio",
+            "bullets": [
+              "📐 Dimensiones: No especificadas",
+              "⚖️ Peso: No especificado"
+            ]
+          }
+        },
+        {
+          "number": 7,
+          "title": "Instalación / Armado",
+          "prompt": "How-to photography: secarropas delhi unboxed with all included accessories and parts visible, organized flat lay on clean surface, step-by-step setup context, modern residential setting, clear instructional style, 4K",
+          "purpose": "Practicidad — muestra que viene listo o es fácil de armar",
+          "conversion": "Reduce objeción 'será difícil de instalar/armar'",
+          "visualSpecs": "Contenido de la caja, accesorios incluidos, disposición ordenada flat-lay",
+          "textSuggestion": {
+            "titulo": "LISTO PARA USAR",
+            "subtitulo": "Todo incluido desde el primer momento",
+            "bullets": [
+              "📦 Contenido completo en la caja",
+              "⚡ Sin instalación compleja",
+              "📋 Instrucciones claras incluidas"
+            ]
+          }
+        },
+        {
+          "number": 8,
+          "title": "Materiales y Durabilidad",
+          "prompt": "Extreme macro photography: secarropas delhi construction details, No especificado surfaces, professional industrial finish visible, premium build quality evident, craftsmanship close-up, technical documentation style, 4K",
+          "purpose": "Durabilidad — justifica la inversión",
+          "conversion": "Reduce objeción 'no va a durar'",
+          "visualSpecs": "Macro de No especificado, acabados, soldaduras o ensambles, construcción robusta",
+          "textSuggestion": {
+            "titulo": "CONSTRUIDO PARA DURAR",
+            "subtitulo": "Calidad que justifica cada peso invertido",
+            "bullets": [
+              "🔩 No especificado",
+              "🏗 Construcción robusta y duradera",
+              "✅ Materiales de alta calidad"
+            ]
+          }
+        },
+        {
+          "number": 9,
+          "title": "Uso Comercial / Ambiente",
+          "prompt": "Professional photography: multiple secarropas delhi units in modern coworking space with premium tech, professional environment, satisfied users visible, soft diffused LED lighting, commercial hospitality style, luxury venue, 4K",
+          "purpose": "Prueba social y uso B2B — validación profesional",
+          "conversion": "Validación: 'si los profesionales lo usan, es bueno'",
+          "visualSpecs": "Múltiples unidades en uso, ambiente profesional/comercial, clientes satisfechos",
+          "textSuggestion": {
+            "titulo": "LO ELIGEN LOS PROFESIONALES",
+            "subtitulo": "Confianza en cada proyecto y espacio",
+            "bullets": [
+              "🏢 Uso profesional y comercial",
+              "⭐ Valorado por expertos",
+              "📈 Miles de clientes satisfechos"
+            ]
+          }
+        },
+        {
+          "number": 10,
+          "title": "Garantía y CTA Final",
+          "prompt": "Professional corporate warranty seal design, circular badge with DELHI brand logo, '6 meses Guarantee' text, certification mark style, metallic gold and silver effect, premium aesthetic, official trust badge, 4K",
+          "purpose": "Cierre de venta — garantía + confianza + llamada a la acción",
+          "conversion": "Convierte visitantes en compradores",
+          "visualSpecs": "Sello de garantía 6 meses, logo DELHI, datos de contacto, llamada a la acción final",
+          "textSuggestion": {
+            "titulo": "CALIDEZ QUE TE ACOMPAÑA",
+            "subtitulo": "Disfrutá el mejor confort en tu día a día",
+            "bullets": [
+              "♨️ Calor inmediato",
+              "🛡 Garantía 6 meses",
+              "✅ Calidad DELHI garantizada"
+            ]
+          }
+        }
+      ],
+      "thumbnails": [
+        "data:image/jpeg;base64,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",
+        "data:image/jpeg;base64,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"
+      ],
+      "imageCount": 2,
+      "createdAt": "24/4/2026, 12:58:38"
     }
   ]
 }
